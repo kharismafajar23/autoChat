@@ -18,35 +18,98 @@
   </head>
   <body>
     <main>
-      <div class="container">
-        <div class="card">
-          <div class="card-body">
-            <!-- Nama Pengirim -->
-            <div class="mb-3">
-              <label for="" class="form-label">Nama Pengirim</label>
-              <input
-                id="nama-pengirim"
-                type="text"
-                class="form-control"
-                placeholder="Masukkan nama pengirim disini.."
-              />
+        <h1 class="text-center mb-4">Auto Text</h1>
+        <div class="container">
+            <div class="card mb-3">
+                <div class="card-body">
+                    <div class="row g-2 mb-3">
+                        <!-- Nama Pengirim -->
+                        <div class="col-md-6">
+                            <label for="" class="form-label">Nama Pengirim</label>
+                            <input
+                                id="nama_pengirim"
+                                type="text"
+                                class="form-control"
+                                placeholder="Masukkan nama pengirim disini.."
+                            />
+                        </div>
+                        <!-- Nama Penerima -->
+                        <div class="col-md-6">
+                            <label for="" class="form-label">Nama Penerima</label>
+                            <div class="input-group">
+                                    <select name="" id="input_sebutan" class="form-select" style="width: 40px">
+                                        <option value="Bapak">Bapak</option>
+                                        <option value="Ibu">Ibu</option>
+                                    </select>
+                                <input id="nama_penerima" type="text" class="form-control" placeholder="Masukkan nama penerima disini.."/>
+                            </div>
+                            
+                        </div>
+                    </div>
+                    
+                    <!-- No Telp -->
+                    <div class="mb-3">
+                        <label for="" class="form-label">No Telp</label>
+                        <input
+                            id="input_telepon"
+                            type="tel"
+                            class="form-control"
+                            placeholder="Masukkan no tel disini.."
+                        />
+                    </div>
+
+                    <!-- Pesan -->
+                    <div class="mb-3">
+                        <label for="" class="form-label">Pesan</label>
+                        <textarea name="input_pesan" id="input_pesan" class="form-control" rows="8">
+Selamat Sore [NamaPenerima]
+   
+Perkenalkan saya [NamaPengirim], Business Advisor dari JMC IT Consultant. 🙏
+
+Terima kasih yang sebesar-besarnya atas partisipasi [Sebutan] dalam webinar "Revitalisasi Website Pemerintah: Kunci Menjawab SPBE, Keterbukaan Informasi, dan Tuntutan Era Digital" yang kami selenggarakan kemarin.
+
+Kami sangat mengapresiasi waktu dan perhatian yang [Sebutan] luangkan. Semoga materi yang disampaikan dapat bermanfaat bagi pengembangan layanan digital di instansi [Sebutan] [NamaPenerima]. 
+
+Sebagai tindak lanjut, kami juga siap berdiskusi lebih jauh mengenai solusi digital yang kami tawarkan, seperti pengembangan website, integrasi layanan publik, maupun strategi percepatan SPBE.
+
+📌 kami berikan PROMO SPESIAL Khusus untuk peserta webinar!
+🔥 DISKON 10% + Skema Pembayaran Belakang
+  
+Digitalisasi bisa dimulai sekarang, pembayaran menyusul kemudian. Hemat, cepat, dan tanpa ribet.
+
+Jika [Sebutan] [NamaPenerima] tertarik untuk diskusi lebih lanjut, kami sangat terbuka untuk mengatur pertemuan virtual sesuai waktu yang nyaman [Sebutan]. 🙏
+
+Terima kasih atas perhatian dan kepercayaannya.  
+Salam hormat,  
+[NamaPengirim]  
+(Business Advisor)
+📍https://www.jmc.co.id/
+                        </textarea>
+                    </div>
+
+                    <button class="btn btn-primary" id="generate_button">Tulis Pesan</button>
+                </div>
             </div>
 
-            <!-- Nama Penerima -->
-            <div class="mb-3">
-              <label for="" class="form-label">Nama Penerima</label>
-              <input
-                id="nama-penerima"
-                type="text"
-                class="form-control"
-                placeholder="Masukkan nama penerima disini.."
-              />
+            <div class="card mb-3" id="card_hasil">
+                <div class="card-header d-flex justify-content-between">
+                    <h3 class="card-title mb-0">Link No HP</h3>
+                    <button id="copy_button" class="btn btn-sm btn-info">Copy Hasil</button>
+                </div>
+                <div class="card-body">
+                    <a id="telepon_tujuan" href="#"></a>
+                </div>
             </div>
 
-            <!-- No Telp -->
-          </div>
+            <div class="card" id="card_hasil">
+                <div class="card-header">
+                    <h3 class="card-title mb-0">Hasil</h3>
+                </div>
+                <div class="card-body">
+                    <p id="text_hasil"></p>
+                </div>
+            </div>
         </div>
-      </div>
     </main>
     <!-- Bootstrap JS -->
     <script
@@ -54,5 +117,7 @@
       integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q"
       crossorigin="anonymous"
     ></script>
+
+    <script src="./assets/scripts/main.js"></script>
   </body>
 </html>
