@@ -13,9 +13,11 @@ generateButton.addEventListener("click", function () {
     .replace(/\[NamaPenerima\]/g, namaPenerima)
     .replace(/\[Sebutan\]/g, sebutan);
 
-  document.querySelector(
-    "#telepon_tujuan"
-  ).innerText = `http://wa.me/+62${noTelp}`;
+  let tujuan = document.querySelector("#telepon_tujuan");
+
+  tujuan.innerText = `http://wa.me/+62${noTelp}`;
+  tujuan.setAttribute("href", `http://wa.me/+62${noTelp}`);
+
   document.querySelector("#text_hasil").innerText = hasil;
 
   // Kosongkan input setelah submit
