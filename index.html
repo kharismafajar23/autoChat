@@ -16,54 +16,64 @@
     <link rel="stylesheet" href="./assets/styles/custom.css" />
     <title>Auto Text</title>
   </head>
-  <body>
-    <main>
-        <h1 class="text-center mb-4">Auto Text</h1>
+  <body class="py-5">
+    <header>
         <div class="container">
-            <div class="card mb-3">
-                <div class="card-body">
-                    <div class="row g-2 mb-3">
-                        <!-- Nama Pengirim -->
-                        <div class="col-md-6">
-                            <label for="" class="form-label">Nama Pengirim</label>
+            <div class="header-container card rounded-4">
+                <div class="card-body text-center py-4">
+                    <h1>Generate Pesan Broadcast</h1>
+                    <p class="text-small mb-0">Semangat BD 😁</p>
+                </div>
+            </div>
+        </div>
+    </header>
+    <main>
+        <section class="py-4">
+            <div class="container">
+                <div class="card border-0 rounded-4 my-shadow mb-3">
+                    <div class="card-body">
+                        <div class="row g-2 mb-3">
+                            <!-- Nama Pengirim -->
+                            <div class="col-md-6">
+                                <label for="" class="form-label fw-600">Nama Pengirim</label>
+                                <input
+                                    id="nama_pengirim"
+                                    type="text"
+                                    class="form-control"
+                                    placeholder="Masukkan nama pengirim disini.."
+                                />
+                            </div>
+                            <!-- Nama Penerima -->
+                            <div class="col-md-6">
+                                <label for="" class="form-label fw-600">Nama Penerima</label>
+                                <div class="input-group">
+                                        <select name="" id="input_sebutan" class="form-select" style="width: 40px">
+                                            <option value="Bapak">Bapak</option>
+                                            <option value="Ibu">Ibu</option>
+                                        </select>
+                                    <input id="nama_penerima" type="text" class="form-control" placeholder="Masukkan nama penerima disini.."/>
+                                </div>
+                                
+                            </div>
+                        </div>
+                        
+                        <!-- No Telp -->
+                        <div class="mb-3">
+                            <label for="" class="form-label fw-600">No Telp</label>
                             <input
-                                id="nama_pengirim"
-                                type="text"
+                                id="input_telepon"
+                                type="tel"
                                 class="form-control"
-                                placeholder="Masukkan nama pengirim disini.."
+                                placeholder="Masukkan no tel disini.."
                             />
                         </div>
-                        <!-- Nama Penerima -->
-                        <div class="col-md-6">
-                            <label for="" class="form-label">Nama Penerima</label>
-                            <div class="input-group">
-                                    <select name="" id="input_sebutan" class="form-select" style="width: 40px">
-                                        <option value="Bapak">Bapak</option>
-                                        <option value="Ibu">Ibu</option>
-                                    </select>
-                                <input id="nama_penerima" type="text" class="form-control" placeholder="Masukkan nama penerima disini.."/>
-                            </div>
-                            
-                        </div>
-                    </div>
-                    
-                    <!-- No Telp -->
-                    <div class="mb-3">
-                        <label for="" class="form-label">No Telp</label>
-                        <input
-                            id="input_telepon"
-                            type="tel"
-                            class="form-control"
-                            placeholder="Masukkan no tel disini.."
-                        />
-                    </div>
-
-                    <!-- Pesan -->
-                    <div class="mb-3">
-                        <label for="" class="form-label">Pesan</label>
-                        <textarea name="input_pesan" id="input_pesan" class="form-control" rows="8">
+    
+                        <!-- Pesan -->
+                        <div class="mb-3">
+                            <label for="" class="form-label fw-600">Pesan</label>
+                            <textarea name="input_pesan" id="input_pesan" class="form-control" rows="8">
 Selamat Sore [Sebutan] [NamaPenerima]
-   
+    
 Perkenalkan saya [NamaPengirim], Business Advisor dari JMC IT Consultant. 🙏
 
 Terima kasih yang sebesar-besarnya atas partisipasi [Sebutan] dalam webinar "Revitalisasi Website Pemerintah: Kunci Menjawab SPBE, Keterbukaan Informasi, dan Tuntutan Era Digital" yang kami selenggarakan kemarin.
@@ -74,7 +84,7 @@ Sebagai tindak lanjut, kami juga siap berdiskusi lebih jauh mengenai solusi digi
 
 📌 kami berikan PROMO SPESIAL Khusus untuk peserta webinar!
 🔥 DISKON 10% + Skema Pembayaran Belakang
-  
+    
 Digitalisasi bisa dimulai sekarang, pembayaran menyusul kemudian. Hemat, cepat, dan tanpa ribet.
 
 Jika [Sebutan] [NamaPenerima] tertarik untuk diskusi lebih lanjut, kami sangat terbuka untuk mengatur pertemuan virtual sesuai waktu yang nyaman [Sebutan]. 🙏
@@ -84,29 +94,48 @@ Salam hormat,
 [NamaPengirim]  
 (Business Advisor)
 📍https://www.jmc.co.id/
-                        </textarea>
+                            </textarea>
+                        </div>
+    
+                        <button class="btn btn-primary rounded-3" id="generate_button">Generate Pesan</button>
                     </div>
-
-                    <button class="btn btn-primary" id="generate_button">Tulis Pesan</button>
+                </div>
+    
+                <div class="card border-0 rounded-4 my-shadow mb-3" id="card_hasil">
+                    <div class="card-header d-flex justify-content-between align-items-center">
+                        <h5 class="card-title mb-0">Link No HP</h5>
+                        <button id="copy_button" class="btn btn-sm btn-info text-white">Copy Hasil</button>
+                    </div>
+                    <div class="card-body">
+                        <a id="telepon_tujuan" href="#" target="_blank"></a>
+                    </div>
+                </div>
+    
+                <div class="card border-0 rounded-4 my-shadow mb-3" id="card_hasil">
+                    <div class="card-header">
+                        <h5 class="card-title mb-0">Hasil</h5>
+                    </div>
+                    <div class="card-body">
+                        <p id="text_hasil"></p>
+                    </div>
                 </div>
             </div>
+        </section>
 
-            <div class="card mb-3" id="card_hasil">
-                <div class="card-header d-flex justify-content-between">
-                    <h3 class="card-title mb-0">Link No HP</h3>
-                    <button id="copy_button" class="btn btn-sm btn-info">Copy Hasil</button>
-                </div>
-                <div class="card-body">
-                    <a id="telepon_tujuan" href="#" target="_blank"></a>
-                </div>
-            </div>
-
-            <div class="card" id="card_hasil">
-                <div class="card-header">
-                    <h3 class="card-title mb-0">Hasil</h3>
-                </div>
-                <div class="card-body">
-                    <p id="text_hasil"></p>
+        <!-- Modal Sukses Copy -->
+        <div class="modal fade" id="modal-succes-copy" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header bg-primary">
+                        <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <p>Teks berhasil disalin 😍</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Tutup</button>
+                    </div>
                 </div>
             </div>
         </div>

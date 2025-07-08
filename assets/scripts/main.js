@@ -7,6 +7,11 @@ generateButton.addEventListener("click", function () {
   let noTelp = document.querySelector("#input_telepon").value;
   let sebutan = document.querySelector("#input_sebutan").value;
 
+  if (namaPenerima == "" && namaPenerima == "" && noTelp == "") {
+    alert("Silahkan isi form secara lengkap");
+    return;
+  }
+
   let templatePesan = document.querySelector("#input_pesan").value;
   let hasil = templatePesan
     .replace(/\[NamaPengirim\]/g, namaPengirim)
@@ -25,10 +30,21 @@ generateButton.addEventListener("click", function () {
   document.querySelector("#nama_pengirim").value = "";
   document.querySelector("#nama_penerima").value = "";
   document.querySelector("#input_sebutan").value = "";
+  document.querySelector("#input_telepon").value = "";
 });
 
 copyButton.addEventListener("click", function () {
   const hasilTeks = document.querySelector("#text_hasil").innerText;
 
-  navigator.clipboard.writeText(hasilTeks);
+  navigator.clipboard
+    .writeText(hasilTeks)
+    .then(() => {
+      var myModal = new bootstrap.Modal(
+        document.getElementById("modal-succes-copy")
+      );
+      myModal.show();
+    })
+    .catch((err) => {
+      alert("Gagal menyalin teks: " + err);
+    });
 });
