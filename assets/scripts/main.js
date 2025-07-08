@@ -17,6 +17,7 @@ generateButton.addEventListener("click", function () {
 
   tujuan.innerText = `http://wa.me/+62${noTelp}`;
   tujuan.setAttribute("href", `http://wa.me/+62${noTelp}`);
+  tujuan.setAttribute("target", "_blank");
 
   document.querySelector("#text_hasil").innerText = hasil;
 
