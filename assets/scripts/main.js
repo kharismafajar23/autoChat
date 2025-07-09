@@ -2,7 +2,24 @@ const generateButton = document.querySelector("#generate_button");
 const copyButton = document.querySelector("#copy_button");
 const resetButton = document.querySelector("#reset_button");
 
+function getWaktu() {
+  const now = new Date();
+  const hours = now.getHours();
+  if (hours >= 4 && hours <= 10) {
+    return "pagi";
+  }
+
+  if (hours >= 11 && hours <= 15) {
+    return "siang";
+  }
+
+  if (hours >= 16 && hours <= 23) {
+    return "malam";
+  }
+}
+
 generateButton.addEventListener("click", function () {
+  let waktu = getWaktu();
   let namaPengirim = document.querySelector("#nama_pengirim").value;
   let namaPenerima = document.querySelector("#nama_penerima").value;
   let noTelp = document.querySelector("#input_telepon").value;
@@ -15,6 +32,7 @@ generateButton.addEventListener("click", function () {
 
   let templatePesan = document.querySelector("#input_pesan").value;
   let hasil = templatePesan
+    .replace(/\[Waktu\]/g, waktu)
     .replace(/\[NamaPengirim\]/g, namaPengirim)
     .replace(/\[NamaPenerima\]/g, namaPenerima)
     .replace(/\[Sebutan\]/g, sebutan);
