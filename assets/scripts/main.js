@@ -1,5 +1,6 @@
 const generateButton = document.querySelector("#generate_button");
 const copyButton = document.querySelector("#copy_button");
+const resetButton = document.querySelector("#reset_button");
 
 generateButton.addEventListener("click", function () {
   let namaPengirim = document.querySelector("#nama_pengirim").value;
@@ -25,12 +26,6 @@ generateButton.addEventListener("click", function () {
   tujuan.setAttribute("target", "_blank");
 
   document.querySelector("#text_hasil").innerText = hasil;
-
-  // Kosongkan input setelah submit
-  document.querySelector("#nama_pengirim").value = "";
-  document.querySelector("#nama_penerima").value = "";
-  document.querySelector("#input_sebutan").value = "";
-  document.querySelector("#input_telepon").value = "";
 });
 
 copyButton.addEventListener("click", function () {
@@ -47,4 +42,13 @@ copyButton.addEventListener("click", function () {
     .catch((err) => {
       alert("Gagal menyalin teks: " + err);
     });
+});
+
+resetButton.addEventListener("click", function () {
+  // Kosongkan input setelah submit
+  document.querySelector("#nama_pengirim").value = "";
+  document.querySelector("#nama_penerima").value = "";
+  document.querySelector("#input_sebutan").value = "";
+  document.querySelector("#input_telepon").value = "";
+  document.querySelector("#telepon_tujuan").innerText = "";
 });
