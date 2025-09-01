@@ -9,11 +9,15 @@ function getWaktu() {
     return "pagi";
   }
 
-  if (hours >= 11 && hours <= 15) {
+  if (hours >= 11 && hours <= 14) {
     return "siang";
   }
 
-  if (hours >= 16 && hours <= 23) {
+  if (hours >= 15 && hours <= 18) {
+    return "sore";
+  }
+
+  if (hours >= 19 && hours <= 23) {
     return "malam";
   }
 }
@@ -24,8 +28,14 @@ generateButton.addEventListener("click", function () {
   let namaPenerima = document.querySelector("#nama_penerima").value;
   let noTelp = document.querySelector("#input_telepon").value;
   let sebutan = document.querySelector("#input_sebutan").value;
+  let instansi = document.querySelector("#input_instansi").value;
 
-  if (namaPenerima == "" && namaPenerima == "" && noTelp == "") {
+  if (
+    namaPenerima == "" &&
+    namaPenerima == "" &&
+    noTelp == "" &&
+    instansi == ""
+  ) {
     alert("Silahkan isi form secara lengkap");
     return;
   }
@@ -35,7 +45,8 @@ generateButton.addEventListener("click", function () {
     .replace(/\[Waktu\]/g, waktu)
     .replace(/\[NamaPengirim\]/g, namaPengirim)
     .replace(/\[NamaPenerima\]/g, namaPenerima)
-    .replace(/\[Sebutan\]/g, sebutan);
+    .replace(/\[Sebutan\]/g, sebutan)
+    .replace(/\[Instansi\]/g, instansi);
 
   let tujuan = document.querySelector("#telepon_tujuan");
 
@@ -69,4 +80,5 @@ resetButton.addEventListener("click", function () {
   document.querySelector("#input_sebutan").value = "";
   document.querySelector("#input_telepon").value = "";
   document.querySelector("#telepon_tujuan").innerText = "";
+  document.querySelector("#input_instansi").innerText = "";
 });
